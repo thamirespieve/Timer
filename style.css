@@ -1,0 +1,139 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+
+  font-size: 62.5%;
+  --ff-primary:'Roboto', sans-serif;
+
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+body .theme{
+  position: absolute;
+  right: 6rem;
+  top: 6rem;
+}
+
+.theme {
+  height: 4.4rem;
+  width: 4.4rem;
+}
+ .theme .noSelectTheme {
+  display: none;
+ }
+
+.content {
+  width: 82.1rem;
+  height: 33.6rem;
+  /* border:1px solid black; */
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 19rem;
+}
+
+.timerContent .timerDisplay {
+font-family:var(--ff-primary);
+font-style: normal;
+font-weight: 500;
+font-size: 12.6rem;
+
+display: flex;
+justify-content: center;
+text-align: center;
+
+text-transform: uppercase;
+
+color: #323238;
+}
+
+.timerContent .controlerContent   {
+  display: flex;
+
+  gap:4rem ;
+}
+
+.soundContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap:2.2rem
+}
+
+.soundContent button {
+  background: #E1E1E6;
+  border-radius: 2.4rem;
+  /* padding: 2.4rem 2.3rem ; */
+  width: 13.8rem;
+  height: 15.2rem;
+}
+
+.soundContent button svg {
+  margin-bottom: 3.2rem;
+}
+
+.soundContent button .slider {
+ 
+  width: 10rem;
+}
+
+.content .soundContent .selectSound {
+  background:#02799D ;
+}
+
+.content .soundContent .selectSound svg path{
+  fill: #FFFFFF;
+  
+}
+
+/*DARK THEME*/
+
+.darkTheme {
+  background: #121214;
+}
+
+.darkTheme .content .timerContent .timerDisplay {
+  color:#FFFFFF;    
+}
+
+.darkTheme .content button svg path {
+  fill: #C4C4CC;
+}
+
+.darkTheme .content .soundContent button  {
+  background: #29292E;
+}
+.darkTheme .content .soundContent  .selectSound{
+  background: #0A3442;
+}
+.darkTheme .content .soundContent .selectSound svg path{
+  fill: #FFFFFF;
+}
+
+@media (max-width: 820px) {
+  .content {
+    gap: 4.2rem;
+    flex-direction: column  ;
+    height: 100vh;
+  }
+
+  .theme {
+    height: 0rem;
+     width: 0rem;
+  }
+}
