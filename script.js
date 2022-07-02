@@ -17,6 +17,15 @@ const coffeSound = new Audio('assests/sound/Cafeteria.wav')
 const fireVol = document.querySelector('#fireVol')
 const fireSound = new Audio('assests/sound/Lareira.wav')
 
+const playButton = document.querySelector('.play')
+const stopButton = document.querySelector('.stop')
+const additionTimerButton = document.querySelector('.additionTimer')
+const subtractionTimer = document.querySelector('.subtractionTimer')
+const minutesDisplay = document.querySelector('.minutes')
+const secondsDisplay = document.querySelector('.seconds')
+
+const minutesInital = minutesDisplay.textContent
+let idTimer
 function pageTheme() {
   lightButton.classList.toggle('noSelectTheme')
   darkButton.classList.toggle('noSelectTheme')
@@ -31,9 +40,61 @@ function stopMusic() {
   fireSound.pause()
 }
 
+function stopTimer(id) {
+  clearTimeout(id)
+}
+
+function startTimer() {
+  idTimer = setTimeout(function () {
+    let minutes = Number(minutesDisplay.textContent)
+    let seconds = Number(secondsDisplay.textContent)
+
+    seconds = seconds - 1
+    if (minutes == 0 && seconds == 0) {
+      minutesDisplay.textContent = String(minutesInital).padStart(2, '0')
+      secondsDisplay.textContent = String(seconds).padStart(2, '0')
+      clearTimeout(idTimer)
+      return
+    }
+    if (seconds < 0) {
+      minutes = minutes - 1
+      seconds = 59
+
+      minutesDisplay.textContent = String(minutes).padStart(2, '0')
+    }
+
+    secondsDisplay.textContent = String(seconds).padStart(2, '0')
+    startTimer()
+  }, 1000)
+}
+
+/* Display Timer Event */
+
+playButton.addEventListener('click', startTimer)
+
+stopButton.addEventListener('click', () => stopTimer(idTimer))
+
+additionTimerButton.addEventListener('click', function () {
+  let minutes = Number(minutesDisplay.textContent)
+  minutesDisplay.textContent = String(minutes + 5).padStart(2, '0')
+})
+
+subtractionTimer.addEventListener('click', () => {
+  let minutes = Number(minutesDisplay.textContent)
+
+  minutes = minutes - 5
+  if (minutes <= 0) {
+    minutes = 0
+  }
+
+  minutesDisplay.textContent = String(minutes).padStart(2, '0')
+})
+
+/* Dark Theme */
 lightButton.addEventListener('click', pageTheme)
 darkButton.addEventListener('click', pageTheme)
 
+/* Sound Event */
 florestButton.addEventListener('click', function () {
   florestButton.classList.add('selectSound')
   rainButton.classList.remove('selectSound')

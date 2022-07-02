@@ -30,20 +30,33 @@ Pegar os sliders dos botões de sons OK
 
 Pegos os elementos
 
-- play
-- pause
-- addition
-- subtraction
-- minutes
-- seconds
+- play OK
+- pause OK
+- addition OK
+- subtraction OK
+- minutes OK
+- seconds OK
 
 Criar um evento de click para o addition
 
-- Pegar os minutes e somar + 5 quando o evento for acionado
-- Deixar os minutos sempre com 2 casas
+- Pegar os minutes e somar + 5 quando o evento for acionado OK
+- Deixar os minutos sempre com 2 casas OK
 
 Criar um evento de click para o substraction
 
-- Pegar os minutes e diminuir 5 quando o evento for acionado
-- Deixar os minutos sempre com 2 casas
-- Verificar se a conta não da negativa se sim manter em 0
+- Pegar os minutes e diminuir 5 quando o evento for acionado OK
+- Deixar os minutos sempre com 2 casas OK
+- Verificar se a conta não da negativa se sim manter em 0 OK
+
+Criar um evento de click para o Play
+
+- fazer uma função setTimeout OK
+  - Pegar os minutos e os segundos OK
+  - Verificar se o segundo é menor que 0 após o decremento OK
+  - Se for menor dentro de um if decrementar os minutos e mostrar no display. Também passar os segundos para 59 OK
+  - Verificar se os minutos e os segundos são iguais a 0 OK
+  - Se sim chamar o clearTimeout pasando o id do setTimeout. Colocar o display como o valor inicial OK
+
+Criar um evento de click para o stop
+
+- Passar o id do timeOut OK
